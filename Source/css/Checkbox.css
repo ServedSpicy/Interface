@@ -1,0 +1,18 @@
+
+.checkbox > img {
+    width : 100%;
+}
+
+.checkbox:hover {
+    border-color : #FFFFFFAA;
+    filter: drop-shadow(1px 1px 3px #0006);
+}
+
+.checkbox {
+    justify-content : center;
+    pointer-events : auto;
+    align-items : center;
+    display : flex;
+    cursor : pointer;
+}
+

@@ -1,0 +1,77 @@
+
+
+#Editor.Recipes {
+    justify-content : flex-start;
+    flex-direction : column;
+    display : flex;
+    gap : 40px;
+}
+
+#Storage {
+    background-color : var(--C);
+    border-radius : 12px;
+    box-shadow : #0003 1px 1px 1px 1px;
+    padding : 2px 4px;
+    display : flex;
+    border : var(--B) solid 4px;
+    height : calc(42px - 8px);
+    width : calc(80% - 4px);
+}
+
+#Storage > * {
+    pointer-events : auto;
+    border-radius : 8px;
+    filter : drop-shadow(0 0 1px #000000b3);
+    height : 20px;
+    margin : 1px 2px;
+    cursor : pointer;
+}
+
+#Storage > *:hover {
+    filter : invert();
+}
+
+#Recipes {
+    justify-content : center;
+    flex-wrap : wrap;
+    display : flex;
+    width : 100%;
+    gap : 16px;
+}
+
+#Recipes > * {
+    background-color : rgb(191,79,64);
+    flex-direction : column;
+    border-radius : 32px;
+    box-shadow : #0003 1px 1px 2px 2px;
+    outline : #ffffffab solid 2px;
+    padding : 24px 16px;
+    display : flex;
+    width : 240px;
+    gap : 16px;
+}
+
+
+#Recipes > * > input {
+    background-color : #fffbfda6;
+    border-radius : 12px;
+    font-size : 24px;
+    padding : 1px 16px;
+    border : solid #fbfafab5 2px;
+    width : calc(100% - 2 * 16px - 2 * 3px);
+    color : white;
+}
+
+
+#Recipes .Options {
+    justify-content : center;
+    display : flex;
+    height : fit-content;
+    width : 100%;
+    gap : 24px;
+}
+
+#Recipes .Options > * {
+    height : 42px;
+    width : 42px;
+}

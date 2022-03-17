@@ -1,0 +1,65 @@
+
+
+#Editor.Editor {
+    justify-content : start;
+    flex-direction : column;
+    gap : 50px;
+}
+
+#Editor.Editor > input {
+    background-color : var(--C);
+    box-shadow : #0001 1px 1px 1px 1px;
+    border : none;
+    width : 400px;
+    color : var(--B);
+}
+
+
+#Editor.Editor .Spices {
+    grid-template-columns : 50% 50%;
+    grid-template-rows : 40px auto;
+    display : grid;
+    height : inherit;
+    width : 100%;
+}
+
+#Editor.Editor .Spices > .Label {
+    pointer-events : auto;
+    font-weight : bold;
+    filter : drop-shadow( 0 0 3px var(--C) );
+    color : var(--B);
+}
+
+#Editor.Editor .Spices > .List {
+    flex-direction : column;
+    border-radius : 18px;
+    margin-bottom : 0;
+    margin-top : 20px;
+    display : flex;
+    padding : 4px;
+    margin : calc(calc(100% - 232px) * .5);
+    border : 3px solid var(--C);
+    width : 220px;
+    gap : 4px;
+}
+
+#Editor.Editor .Spices > .List:last-child {
+    grid-template-columns : 100%;
+    grid-template-rows : repeat(16,30px);
+    display : grid;
+}
+
+#Editor.Editor .Spices > .List > * {
+    justify-content : center;
+    pointer-events : auto;
+    border-radius : 12px;
+    align-items : center;
+    white-space : nowrap;
+    font-weight : bold;
+    box-shadow : #0001 1px 1px 1px 1px;
+    font-size : 14px;
+    display : flex;
+    cursor : pointer;
+    height : 30px;
+    width : 100%;
+}

@@ -1,0 +1,9 @@
+
+#Editor {
+    justify-content : center;
+    align-items : center;
+    display : flex;
+    padding : 5%;
+    height : 100%;
+}
+

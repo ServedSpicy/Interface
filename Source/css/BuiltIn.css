@@ -1,0 +1,33 @@
+
+* {
+    scrollbar-width : none;
+    pointer-events : none;
+    font-family : monospace;
+    user-select : none;
+    text-align : center;
+    font-size : larger;
+    outline : none;
+    padding : 0;
+    margin : 0;
+    color : white;
+}
+
+html {
+    background-color : var(--A);
+    height : 100vh;
+    width : 100vw;
+}
+
+body {
+    flex-direction : column;
+    min-height : 680px;
+    min-width : 760px;
+    display : flex;
+    height : 100%;
+    width : 100%;
+}
+
+input {
+    pointer-events : auto;
+    user-select : auto;
+}

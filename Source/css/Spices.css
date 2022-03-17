@@ -1,0 +1,51 @@
+
+
+#Editor.Spices {
+    justify-content : flex-start;
+    gap : 40px;
+}
+
+#Preview {
+    background-color : var(--B);
+    justify-content : center;
+    flex-direction : column;
+    border-radius : 12px;
+    align-items : center;
+    box-shadow : #0003 0 0 2px 2px;
+    display : flex;
+    padding : 16px;
+    height : fit-content;
+    width : calc(100% - 400px - 40px - 2 * 16px);
+}
+
+#Preview.Selected {
+    justify-content : flex-start;
+    gap : 16px;
+}
+
+#Preview > input {
+    background-color : var(--A);
+    border-radius : 12px;
+    padding : 1px 10px;
+    border : solid #b7567eaa 3px;
+    color : var(--B);
+    width : 80%;
+}
+
+polygon {
+    pointer-events : auto;
+    stroke-width : 5px;
+    stroke : white;
+    cursor : pointer;
+    fill : transparent;
+}
+
+polygon:hover , polygon.Selected {
+    stroke : var(--B);
+    fill : var(--B);
+}
+
+svg.container {
+    height : 400px;
+    width : 400px;
+}

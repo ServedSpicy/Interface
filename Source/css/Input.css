@@ -1,0 +1,12 @@
+
+
+
+input {
+    background-color : #fffbfda6;
+    border-radius : 12px;
+    font-size : 24px;
+    padding : 1px 16px;
+    border : solid #fbfafab5 2px;
+    width : calc(100% - 2 * 16px - 2 * 3px);
+    color : white;
+}

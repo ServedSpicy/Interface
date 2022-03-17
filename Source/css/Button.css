@@ -1,0 +1,21 @@
+
+
+
+.button {
+    pointer-events : auto;
+}
+
+.button > img {
+    width : 100%;
+}
+
+.button {
+    justify-content : center;
+    align-items : center;
+    display : flex;
+    cursor : pointer;
+}
+
+.button:hover {
+    filter : drop-shadow(1px 1px 3px #0006);
+}
