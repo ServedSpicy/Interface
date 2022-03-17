@@ -3,9 +3,11 @@
 
 (async () => {
 
-    function stringHue(string = ''){
+    const buffer = {};
 
-        const chars = [...checksum(string)];
+    function stringHue(string = ''){
+        
+        const chars = [...btoa(string)];
         let hue = 0;
 
         for(const c of chars)
@@ -17,7 +19,7 @@
     function stringColor(string = '',saturation = 50,lightness = 50){
         return `hsl(${ stringHue(string) },${ saturation }%,${ lightness }%)`;
     }
-
+    
 
     window.Color = { stringHue , stringColor };
 

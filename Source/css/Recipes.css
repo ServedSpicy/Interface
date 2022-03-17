@@ -14,7 +14,7 @@
     padding : 2px 4px;
     display : flex;
     border : var(--B) solid 4px;
-    height : calc(42px - 8px);
+    height : fit-content;
     width : calc(80% - 4px);
 }
 

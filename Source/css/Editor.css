@@ -33,11 +33,11 @@
 #Editor.Editor .Spices > .List {
     flex-direction : column;
     border-radius : 18px;
-    margin-bottom : 0;
-    margin-top : 20px;
     display : flex;
     padding : 4px;
     margin : calc(calc(100% - 232px) * .5);
+    margin-bottom : 0;
+    margin-top : 20px;
     border : 3px solid var(--C);
     width : 220px;
     gap : 4px;
