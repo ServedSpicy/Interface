@@ -16,7 +16,7 @@
 
 
 #Editor.Editor .Spices {
-    grid-template-columns : 50% 50%;
+    grid-template-columns : 40% 20% 40%;
     grid-template-rows : 40px auto;
     display : grid;
     height : inherit;
@@ -35,12 +35,37 @@
     border-radius : 18px;
     display : flex;
     padding : 4px;
-    margin : calc(calc(100% - 232px) * .5);
-    margin-bottom : 0;
-    margin-top : 20px;
     border : 3px solid var(--C);
     width : 220px;
     gap : 4px;
+    
+    margin : calc(calc(100% - 232px) * .5);
+    margin-bottom : 0;
+    margin-top : 20px;
+}
+
+#Editor.Editor .Spices > .Amounts {
+    grid-template-columns : 100%;
+    grid-template-rows : repeat(16,30px);
+    display : grid;
+    padding : 4px;
+    gap : 4px;
+    
+    margin : calc(calc(100% - 88px) * .5);
+    margin-bottom : 0;
+    margin-top : 20px;
+}
+
+#Editor.Editor .Spices > .Amounts > * {
+    background-color : var(--C);
+    box-shadow : #0001 1px 1px 1px 1px;
+    font-size : 16px;
+    border : none;
+    color : var(--B);
+}
+
+#Editor.Editor .Spices > .Amounts > *.Empty {
+    visibility : hidden;
 }
 
 #Editor.Editor .Spices > .List:last-child {
@@ -62,4 +87,13 @@
     cursor : pointer;
     height : 30px;
     width : 100%;
+}
+
+#Editor.Editor .Spices > .List > .Empty {
+    opacity : 0.6;
+    cursor : auto;
+}
+
+#Editor.Editor .Spices > .List > .Empty:hover {
+    filter : none;
 }

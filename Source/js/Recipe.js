@@ -201,6 +201,11 @@
             this.#spices.delete(spice);
             this.#dataChanged();
         }
+        
+        hasSpice(spice){
+            return this.#spices
+                .has(spice);
+        }
 
         delete(){
             recipes.delete(this.#name);
