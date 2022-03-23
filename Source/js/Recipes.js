@@ -32,12 +32,18 @@
             .sort((a,b) => b.bytes - a.bytes)
             .forEach((recipe) => {
                 const indicator = create('div');
-                indicator.style.backgroundColor = recipe.color;//Color.stringColor(recipe.name);
+                // indicator.style.backgroundColor = recipe.color;//Color.stringColor(recipe.name);
                 indicator.title = ` ${ recipe.name } ( ${ recipe.bytes } Bytes ) `;
                 const percent = ((recipe.bytes / 1000) * 100);
                 log(percent,recipe.bytes);
                 indicator.style.width = `calc(${ percent }% - 4px)`;
                 storageIndicator.appendChild(indicator);
+                indicator.addEventListener('mouseenter',() => {
+                    query(`#Recipes > #Recipe_${ recipe.name.replaceAll(' ','_') }`)?.classList.add('Selected');
+                });
+                indicator.addEventListener('mouseleave',() => {
+                    query(`#Recipes > #Recipe_${ recipe.name.replaceAll(' ','_') }`)?.classList.remove('Selected');
+                });
             });
         }
 
@@ -49,34 +55,13 @@
         recipeList.id = 'Recipes';
 
 
-        Recipe.recipes.forEach((recipe) => {
-
-            // const color = Color.stringColor(recipe.name,50,40);
-
+        function makeRecipe(recipe){
 
             const tile = create('div');
-            tile.style.backgroundColor = recipe.color;
+            tile.id = `Recipe_${ recipe.name.replaceAll(' ','_') }`;
 
-            const label = create('input');
-            label.style.color = recipe.color;
-            label.placeholder = 'Recipe Name';
-            label.type = 'text';
-            label.value = recipe.name;
-            label.addEventListener('input',() => {
-                let value = label.value;
-
-                value = value.replaceAll(/\s+/g,' ');
-                value = value.substring(0,20);
-                label.value = value;
-
-                value = value.trim();
-
-                if(value.length < 1)
-                    value = null;
-
-                recipe.name = value;
-            });
-            
+            const label = create('h3');
+            label.innerText = recipe.name;
             tile.appendChild(label);
 
 
@@ -126,7 +111,11 @@
             options.appendChild(removeRecipe);
 
             recipeList.appendChild(tile);
-        });
+        }
+
+
+        Recipe.recipes
+        .forEach(makeRecipe);
 
         editor.appendChild(recipeList);
     }

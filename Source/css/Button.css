@@ -17,5 +17,5 @@
 }
 
 .button:hover {
-    filter : drop-shadow(1px 1px 3px #0006);
+    filter : drop-shadow(1px 1px 1px #0004);
 }

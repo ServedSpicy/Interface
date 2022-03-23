@@ -21,14 +21,23 @@
 #Storage > * {
     pointer-events : auto;
     border-radius : 8px;
-    filter : drop-shadow(0 0 1px #000000b3);
+    filter : drop-shadow(0 0 1px #0003);
     height : 20px;
     margin : 1px 2px;
     cursor : pointer;
+    transition-duration: .18s;
+}
+
+#Storage > *:nth-child(odd){
+    background-color: var(--B);
+}
+
+#Storage > *:nth-child(even){
+    background-color: var(--A);
 }
 
 #Storage > *:hover {
-    filter : invert();
+    background-color: white;
 }
 
 #Recipes {
@@ -40,26 +49,37 @@
 }
 
 #Recipes > * {
-    background-color : rgb(191,79,64);
+    background-color : rgba(183, 86, 126, 0.39);
     flex-direction : column;
-    border-radius : 32px;
-    box-shadow : #0003 1px 1px 2px 2px;
-    outline : #ffffffab solid 2px;
+    border-radius : 16px;
+    box-shadow : #0001 1px 1px 1px 1px;
     padding : 24px 16px;
     display : flex;
     width : 240px;
     gap : 16px;
+    pointer-events : auto;
+    transition-duration: .4s;
+    cursor : pointer;
+}
+
+#Recipes > *:hover {
+    border-radius: 24px;
+    background-color : rgba(183, 86, 126, .6);
+}
+
+#Recipes > .Selected {
+    border-radius: 24px;
+    background-color : rgba(183, 86, 126, .8);
 }
 
 
-#Recipes > * > input {
-    background-color : #fffbfda6;
-    border-radius : 12px;
-    font-size : 24px;
-    padding : 1px 16px;
-    border : solid #fbfafab5 2px;
-    width : calc(100% - 2 * 16px - 2 * 3px);
-    color : white;
+
+#Recipes > * > h3 {
+    color: white;
+    border: none;
+    background: transparent;
+    filter: drop-shadow(2px 2px #0003);
+    font-size: 24px;
 }
 
 
