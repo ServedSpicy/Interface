@@ -30,4 +30,16 @@ async function read(resource){
 }
 
 
-export default { read };
+async function write(resource,data){
+
+    const server = await Connection.open();
+
+    await server.request({
+        action : 'write' ,
+        resource : resource ,
+        data : JSON.stringify(data)
+    });
+}
+
+
+export default { read , write };

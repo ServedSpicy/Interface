@@ -1,4 +1,7 @@
 
+import { loadSpices } from './Data/Load.js'
+import { saveRecipes } from './Data/Save.js'
+
 
 (() => {
 
@@ -52,7 +55,7 @@
 
         log(`Requesting Spices`);
 
-        spices = await Storage.read('Spices');
+        spices = await loadSpices();
 
         console.log('Spices',spices);
     }
@@ -63,7 +66,7 @@
 
         console.log(spices);
 
-        await Storage.write('Spices',spices);
+        await saveSpices(spices);
     }
 
 

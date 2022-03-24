@@ -1,5 +1,9 @@
 
 
+import { loadRecipes } from './Data/Load.js'
+import { saveRecipes } from './Data/Save.js'
+
+
 (async () => {
 
     const { log , warn } = console;
@@ -124,7 +128,7 @@
 
         log(`Loading Recipes`);
 
-        const data = await Storage.read('Recipes');
+        const data = await loadRecipes();
 
         Object
         .entries(data)
@@ -153,7 +157,7 @@
 
         log(`Data to be saved:`,data);
 
-        await Storage.write('Recipes',data);
+        await saveRecipes(data);
     }
 
 
@@ -201,7 +205,7 @@
             this.#spices.delete(spice);
             this.#dataChanged();
         }
-        
+
         hasSpice(spice){
             return this.#spices
                 .has(spice);
@@ -215,7 +219,7 @@
         get name(){
             return this.#name;
         }
-        
+
         get spices(){
             return this.#spices;
         }
