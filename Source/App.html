@@ -4,7 +4,7 @@
         <meta charset = 'utf-8' >
         <title>ServedSpicy</title>
         <link rel = 'icon' type = 'image/png' href = '/img/ServedSpicy.png'/>
-        
+
         <link rel = 'stylesheet' href = '/css/Themes/Default.css'>
         <link rel = 'stylesheet' href = '/css/BuiltIn.css'>
         <link rel = 'stylesheet' href = '/css/Button.css'>
@@ -16,19 +16,22 @@
         <link rel = 'stylesheet' href = '/css/Spices.css'>
         <link rel = 'stylesheet' href = '/css/Recipes.css'>
         <link rel = 'stylesheet' href = '/css/Editor.css'>
-        
-        <script src = '/js/WebServer.js'></script>
-        <script src = '/js/WebSocket.js'></script>
-        <script src = '/js/Recipe.js'></script>
-        <script src = '/js/Storage.js'></script>
-        <script src = '/js/Color.js'></script>
-        <script src = '/js/Menu.js'></script>
-        
-        <script src = '/js/Recipes.js' defer></script>
-        <script src = '/js/Editor.js' defer></script>
-        <script src = '/js/Spices.js' defer></script>
-        <script src = '/js/Upload.js' defer></script>
-        <script src = '/js/App.js' defer></script>
+
+        <script type = 'module' src = '/js/Data/Load.js'></script>
+        <script type = 'module' src = '/js/Data/Socket.js'></script>
+
+        <script type = 'module' src = '/js/WebServer.js'></script>
+        <script type = 'module' src = '/js/WebSocket.js'></script>
+        <script type = 'module' src = '/js/Recipe.js'></script>
+        <script type = 'module' src = '/js/Storage.js'></script>
+        <script type = 'module' src = '/js/Color.js'></script>
+        <script type = 'module' src = '/js/Menu.js'></script>
+
+        <script type = 'module' src = '/js/Recipes.js' defer></script>
+        <script type = 'module' src = '/js/Editor.js' defer></script>
+        <script type = 'module' src = '/js/Spices.js' defer></script>
+        <script type = 'module' src = '/js/Upload.js' defer></script>
+        <script type = 'module' src = '/js/App.js' defer></script>
     </head>
     <body>
         <div id = 'Upload' title = 'Upload' class = 'button'>

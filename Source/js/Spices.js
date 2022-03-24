@@ -15,7 +15,7 @@
 
         let
             x = 0,
-            y = 0
+            y = 0,
             angle = 0;
 
 
@@ -33,7 +33,7 @@
         }
 
         let
-            offsetx = size * .5;
+            offsetx = size * .5,
             offsety = size * .5;
 
         offsetx -= radius;
@@ -106,7 +106,7 @@
         const polys = [];
 
         const
-            inner = poly(container * 2,160);
+            inner = poly(container * 2,160),
             outer = poly(container * 2,190);
 
 
