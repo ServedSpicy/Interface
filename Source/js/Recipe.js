@@ -88,38 +88,7 @@ import { saveRecipes } from './Data/Save.js'
     }
 
 
-    function parseRecipe([ name , data ]){
 
-        if(/^\s+$/.test(name)){
-
-            warn(`Recipe name is empty:`,name,
-                 `\n\t-> Ignoring Recipe`);
-
-            return;
-        }
-
-        if(typeof(data) != 'object'){
-
-            warn(`Recipe doesn't contain object data:`,name,data,
-                 `\n\t-> Ignoring recipe`);
-
-            return;
-        }
-
-        const { Used , Spices } = data;
-
-        const used = parseUsed(Used);
-
-        const spices = Object.fromEntries(
-            Object.entries(parseSpices(Spices))
-            .map(parseSpice)
-            .filter((spice) => spice)
-        );
-
-        log(name,used,spices);
-
-        return [ name , used , spices ];
-    }
 
 
     async function load(){
@@ -128,19 +97,29 @@ import { saveRecipes } from './Data/Save.js'
 
         log(`Loading Recipes`);
 
-        const data = await loadRecipes();
+        const response = await loadRecipes();
 
-        Object
-        .entries(data)
-        .map(parseRecipe)
-        .filter((recipe) => recipe)
-        .forEach((data) => {
-            recipes.set(data[0],new Recipe(...data));
+        const { error , data } = response;
+
+        if(error){
+            log('Recipe data contains error',error,data);
+            return;
+        }
+
+        console.log('Recipes',response.recipes);
+
+        let hasError = response.recipes
+            .filter((recipe) => 'error' in recipe)
+            .length > 0;
+
+        if(hasError){
+            log('Recipe data contains error',response.recipes);
+            return;
+        }
+
+        response.recipes.forEach(({ name , used , spices }) => {
+            recipes.set(name,new Recipe(name,used,spices));
         });
-
-
-
-        log('Recipes:',recipes);
     }
 
     async function save(){
