@@ -1,6 +1,6 @@
 
 
-import { create } from './Browser.js'
+import { create , query } from './Browser.js'
 
 
 (() => {
@@ -81,7 +81,13 @@ import { create } from './Browser.js'
                 useInMachine.classList.add('Checked');
 
             options.appendChild(useInMachine);
-            useInMachine.addEventListener('click',updateCheck);
+
+            if(recipe.spices.size > 0)
+                useInMachine.addEventListener('click',updateCheck);
+            else {
+                useInMachine.classList.add('Blocked');
+                useInMachine.title = 'Recipes without spices cannot be uploaded.';
+            }
 
             updateCheck();
 

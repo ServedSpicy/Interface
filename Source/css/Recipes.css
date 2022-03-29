@@ -74,6 +74,8 @@
 
 
 
+
+
 #Recipes > * > h3 {
     color: white;
     border: none;
@@ -94,4 +96,9 @@
 #Recipes .Options > * {
     height : 42px;
     width : 42px;
+}
+
+#Recipes .Options > .Blocked {
+    cursor: no-drop;
+    filter: grayscale(1) opacity(.5);
 }
