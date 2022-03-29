@@ -11,8 +11,12 @@ let socket;
 let onResource;
 
 
-function request(json){
-    socket.send(JSON.stringify(json));
+async function request(json){
+
+    if(!socket)
+        await connect();
+
+    socket?.send(JSON.stringify(json));
 }
 
 

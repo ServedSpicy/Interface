@@ -9,7 +9,7 @@ import { saveRecipes } from './Data/Save.js'
 
 
     const menu = new Menu('Spices');
-    let spices;
+    let spices = [];
 
 
 
@@ -55,9 +55,20 @@ import { saveRecipes } from './Data/Save.js'
 
         log(`Requesting Spices`);
 
-        spices = await loadSpices();
+        const response = await loadSpices();
 
-        console.log('Spices',spices);
+        const { error } = response;
+
+        const { error , data } = response;
+
+        if(error){
+            log('Spices data contains error',error,data);
+            return;
+        }
+
+        console.log('Spices',response.spices);
+
+        spices = response.spices;
     }
 
     async function saveSpices(){

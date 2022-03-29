@@ -160,6 +160,9 @@ import { saveRecipes } from './Data/Save.js'
 
         set name(name){
 
+            if(this.#name === name)
+                return;
+
             recipes.delete(this.#name);
             this.#name = name;
             recipes.set(name,this);
@@ -169,6 +172,9 @@ import { saveRecipes } from './Data/Save.js'
         }
 
         set isUsed(state){
+
+            if(this.#used === state)
+                return;
 
             this.#used = state;
 
