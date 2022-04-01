@@ -99,7 +99,7 @@ menu.onOpen = async (editor) => {
         const openEditor = create('div');
         openEditor.classList.add('button');
         openEditor.innerHTML = `<img src = './img/Edit.png'>`;
-        openEditor.addEventListener('click',() => useMenu('Editor')(recipe));
+        openEditor.addEventListener('click',() => useMenu('Editor',recipe));
         options.appendChild(openEditor);
 
         const removeRecipe = create('div');

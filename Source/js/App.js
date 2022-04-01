@@ -15,13 +15,13 @@ window.addEventListener('load',async () => {
     await Spices.load();
 
     query('#Overview > *:first-child')
-        .addEventListener('click',useMenu('Recipes'));
+        .addEventListener('click',() => useMenu('Recipes'));
 
     query('#Overview > *:nth-child(2)')
-            .addEventListener('click',useMenu('Editor'));
+            .addEventListener('click',() => useMenu('Editor'));
 
     query('#Overview > *:last-child')
-        .addEventListener('click',useMenu('Spices'));
+        .addEventListener('click',() => useMenu('Spices'));
 
-    Menu.useMenu('Recipes')();
+    useMenu('Recipes');
 });

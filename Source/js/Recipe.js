@@ -188,6 +188,10 @@ class Recipe {
         this.#dataChanged();
     }
 
+    modifySpice(spice,amount){
+        this.addSpice(spice,amount);
+    }
+
     hasSpice(spice){
         return this.#spices
             .has(spice);

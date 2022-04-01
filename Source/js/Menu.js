@@ -51,10 +51,8 @@ import { useTitle } from './Browser.js'
             this.#onOpen = callback;
         }
 
-        static useMenu(name){
-            return (...args) => menus
-                .get(name)
-                ?.open(...args);
+        static useMenu(name,...args){
+            menus.get(name)?.open(...args);
         }
     }
 
