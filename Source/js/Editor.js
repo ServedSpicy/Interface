@@ -1,7 +1,7 @@
 
 
-import { loadRecipes } from './Data/Load.js'
 import { create } from './Browser.js'
+import Spices from './Spices.js'
 
 
 (() => {
@@ -74,7 +74,7 @@ import { create } from './Browser.js'
         spicelists.appendChild(unused);
 
 
-        const spices = await loadRecipes();
+        const spices = Spices.spices();
 
         function spiceBox(spice){
             const box = create('div');
@@ -124,13 +124,14 @@ import { create } from './Browser.js'
                     if(box.classList.contains('Empty'))
                         return;
 
-                    recipe.addSpice(spice,0);
+                    recipe.addSpice(spice,1);
                     box.classList.add('Empty');
 
 
                     const i = [...amounts.children][recipe.spices.size - 1];
                     i.classList.remove('Empty');
                     i.value = 1;
+                    // i.select();
 
                     spiceBox([ spice ]);
                 });
@@ -146,6 +147,7 @@ import { create } from './Browser.js'
             unused.appendChild(box);
 
             input.type = 'text';
+
 
             if(s >= recipe.spices.size)
                 input.classList.add('Empty');
