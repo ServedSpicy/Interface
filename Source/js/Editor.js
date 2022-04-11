@@ -58,11 +58,56 @@ import Recipe from './Recipe.js';
 
         const spices = Spices.spices();
 
-        for(const spice of recipe.spices)
-            spiceBox(spice);
 
         for(let s = 0;s <= 16;s++)
             addSpiceChoice(s);
+
+        recipe.spices.forEach(spiceBox);
+
+        updateAmount();
+
+
+        function updateAmount(){
+
+            [...amounts.children].forEach((input,index) => {
+
+                const spice = [...used.children][index]
+
+                log('amount',input,index,spice)
+
+                if(!spice){
+                    input.oninput = () => {};
+                    return;
+                }
+
+                const name = spice.textContent;
+
+                input.value = recipe.spices.get(name);
+
+                input.oninput = () => {
+
+                    const { dataset , value } = input;
+
+                    let amount = value
+                        .replace(/[^0-9]/g,'')
+                        .replace(/^0/,'');
+
+
+                    amount ??= '1';
+                    amount = parseInt(amount);
+
+                    if(amount < 1)
+                        amount = 1;
+
+                    if(amount > 255)
+                        amount = 255;
+
+                    input.value = amount;
+
+                    recipe.modifySpice(name,amount);
+                }
+            });
+        }
 
 
         function addSpiceChoice(index){
@@ -92,29 +137,13 @@ import Recipe from './Recipe.js';
             const input = create('input');
             input.value = [...recipe.spices.values()][index];
             input.type = 'text';
-            input.addEventListener('input',onEditAmount);
             amounts.appendChild(input);
 
             if(index >= recipe.spices.size)
                 input.classList.add('Empty');
 
 
-            function onEditAmount(){
 
-                let amount = input.value
-                    .replace(/[^0-9]/g,'')
-                    .replace(/^0/,'');
-
-                input.value = amount;
-
-                amount ??= '1';
-
-                amount = parseInt(amount);
-
-                console.log(spice,amount)
-
-                recipe.modifySpice(spice,amount);
-            }
 
             function onSpiceAdd(){
 
@@ -128,16 +157,20 @@ import Recipe from './Recipe.js';
                 i.classList.remove('Empty');
                 i.value = 1;
 
-                spiceBox([ spice ]);
+                spiceBox(1,spice);
+
+                updateAmount();
             }
         }
 
         function onEditName(){
 
-            let value = label.value;
+            let { value } = label;
 
-            value = value.replaceAll(/\s+/g,' ');
-            value = value.substring(0,20);
+            value = value
+                .replaceAll(/\s+/g,' ')
+                .substring(0,20);
+
             label.value = value;
 
             value = value.trim();
@@ -149,28 +182,29 @@ import Recipe from './Recipe.js';
             editor.style.backgroundColor = Color.stringColor(recipe.name,20,60);
         }
 
-        function spiceBox(spice){
+        function spiceBox(amount,spice){
 
             const box = create('div');
             box.classList.add('button');
-            box.textContent = spice[0];
-            box.style.backgroundColor = Color.stringColor(spice[0],20,50);
+            box.textContent = spice;
+            box.style.backgroundColor = Color.stringColor(spice,20,50);
             box.addEventListener('click',onRemoveSpice);
             used.appendChild(box);
-
 
             function onRemoveSpice(){
 
                 box.remove();
-                recipe.removeSpice(spice[0]);
+                recipe.removeSpice(spice);
 
                 const element = [...unused.children]
-                    .find((element) => element.textContent === spice[0]);
+                    .find((element) => element.textContent === spice);
 
                 if(element){
                     element.classList.remove('Empty');
                     [...amounts.children][recipe.spices.size].classList.add('Empty');
                 }
+
+                updateAmount();
             }
         }
     }
