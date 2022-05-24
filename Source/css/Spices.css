@@ -35,17 +35,30 @@
 polygon {
     pointer-events : auto;
     stroke-width : 5px;
-    stroke : white;
     cursor : pointer;
-    fill : transparent;
+    fill : var(--color,transparent);
+    stroke : var(--color,white);
 }
 
-polygon:hover , polygon.Selected {
+polygon:hover {
+    fill : var(--stroke);
+}
+
+polygon.Selected {
     stroke : var(--B);
     fill : var(--B);
+    stroke-width : 3px;
 }
 
 svg.container {
     height : 400px;
     width : 400px;
+}
+
+
+#Pointer {
+    position : absolute;
+    width : 20px;
+    height : 20px;
+    visibility : hidden;
 }

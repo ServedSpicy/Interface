@@ -81,6 +81,13 @@ menu.onOpen = async (editor) => {
 
     log(`Spices Menu Selected`);
 
+
+    const pointer = document.createElement('img');
+    pointer.src = 'img/Pointer.png';
+    pointer.id = 'Pointer';
+    editor.appendChild(pointer);
+
+
     var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
     svg.classList.add('container');
 
@@ -97,7 +104,7 @@ menu.onOpen = async (editor) => {
 
     const makePoly = (points) => {
 
-        const polygon = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
+        const polygon = document.createElementNS('http://www.w3.org/2000/svg','polygon');
 
         for(const [ x , y ] of points){
             const point = svg.createSVGPoint();
@@ -139,16 +146,32 @@ menu.onOpen = async (editor) => {
 
         index = container - index;
 
+        const spice = spices[index];
+
+        if(spice){
+            // polygon.style.fill = Color.stringColor(spice);
+            // polygon.style.stroke = Color.stringColor(spice);
+            polygon.style.setProperty('--stroke',`hsl(${ Color.stringHue(spice) },50%,70%)`);
+            polygon.style.setProperty('--color',Color.stringColor(spice));
+        }
+
         polygon.addEventListener('click',() => {
-            console.log('select',index);
+
+            const { x , y , width , height } = svg.getBoundingClientRect();
+            const [ cx , cy ] = [ x + .5 * width , y + .5 * height ];
+
+            const angle = index * Math.PI * 2 / 16;
+
+            pointer.style.left = `${ cx - 10 + Math.sin(angle) * 135 }px`;
+            pointer.style.top = `${ cy - 10 - Math.cos(angle) * 135 }px`;
+            pointer.style.transform = `rotate(${ angle }rad)`;
+            pointer.style.visibility = 'unset';
+
             preview.classList.add('Selected');
             selected?.classList.remove('Selected');
             polygon.classList.add('Selected');
 
             selected = polygon;
-
-
-
 
             preview.innerHTML = `<h1>BOX#${ index }</h1>`;
 
@@ -157,10 +180,11 @@ menu.onOpen = async (editor) => {
             input.placeholder = 'Spice Name';
             input.value = spices[index] ?? '';
             input.addEventListener('input',(event) => {
-                let value = input.value;
 
-                value = value.replaceAll(/\s+/g,' ');
-                value = value.substring(0,20);
+                let value = input.value
+                    .replaceAll(/\s+/g,' ')
+                    .substring(0,20);
+
                 input.value = value;
 
                 value = value.trim();
@@ -172,6 +196,7 @@ menu.onOpen = async (editor) => {
 
                 save();
             });
+
             preview.appendChild(input);
         });
 
