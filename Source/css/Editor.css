@@ -1,4 +1,12 @@
 
+#Editor {
+    width : 90%;
+    top : 130px;
+    position : relative;
+    overflow-y : scroll;
+    min-height : calc(85% - 130px);
+    height : fit-content;
+}
 
 #Editor.Editor {
     justify-content : start;
@@ -19,8 +27,8 @@
     grid-template-columns : 40% 20% 40%;
     grid-template-rows : 40px auto;
     display : grid;
-    height : inherit;
     width : 100%;
+
 }
 
 #Editor.Editor .Spices > .Label {
@@ -28,6 +36,7 @@
     font-weight : bold;
     filter : drop-shadow( 0 0 3px var(--C) );
     color : var(--B);
+    padding-top: 14px;
 }
 
 #Editor.Editor .Spices > .List {
@@ -38,7 +47,7 @@
     border : 3px solid var(--C);
     width : 220px;
     gap : 4px;
-    
+
     margin : calc(calc(100% - 232px) * .5);
     margin-bottom : 0;
     margin-top : 20px;
@@ -50,7 +59,7 @@
     display : grid;
     padding : 4px;
     gap : 4px;
-    
+
     margin : calc(calc(100% - 88px) * .5);
     margin-bottom : 0;
     margin-top : 20px;

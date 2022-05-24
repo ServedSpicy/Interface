@@ -3,6 +3,10 @@
 #Editor.Spices {
     justify-content : flex-start;
     gap : 40px;
+    position: fixed;
+    overflow: hidden;
+    height: calc(90% - 130px);
+    padding-top: 48px;
 }
 
 #Preview {

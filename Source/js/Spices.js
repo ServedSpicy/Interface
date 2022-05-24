@@ -163,7 +163,7 @@ menu.onOpen = async (editor) => {
             const angle = index * Math.PI * 2 / 16;
 
             pointer.style.left = `${ cx - 10 + Math.sin(angle) * 135 }px`;
-            pointer.style.top = `${ cy - 10 - Math.cos(angle) * 135 }px`;
+            pointer.style.top = `${ cy - 10 - Math.cos(angle) * 135 - 130 }px`;
             pointer.style.transform = `rotate(${ angle }rad)`;
             pointer.style.visibility = 'unset';
 

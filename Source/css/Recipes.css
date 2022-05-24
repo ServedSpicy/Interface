@@ -82,23 +82,52 @@
     background: transparent;
     filter: drop-shadow(2px 2px #0003);
     font-size: 24px;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 
 #Recipes .Options {
     justify-content : center;
     display : flex;
-    height : fit-content;
     width : 100%;
     gap : 24px;
+    align-items: center;
 }
 
 #Recipes .Options > * {
-    height : 42px;
-    width : 42px;
+    width : 48px;
+    height : 48px;
+    padding : 4px;
+}
+
+#Recipes .Options > *:hover {
+    width : 56px;
+    height : 56px;
+    padding : 0;
+    animation-name : Grow-Options;
+    animation-duration : .2s;
 }
 
 #Recipes .Options > .Blocked {
-    cursor: no-drop;
-    filter: grayscale(1) opacity(.5);
+    cursor : no-drop;
+    filter : grayscale(1) opacity(.5);
+}
+
+
+@keyframes Grow-Options {
+
+    from {
+        width : 48px;
+        height : 48px;
+        padding: 4px;
+    }
+
+    to {
+        width : 56px;
+        height : 56px;
+        padding : 0;
+    }
 }

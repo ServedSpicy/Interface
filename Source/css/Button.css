@@ -14,8 +14,35 @@
     align-items : center;
     display : flex;
     cursor : pointer;
+    filter: drop-shadow(1px 1px 2px #0004);
 }
 
 .button:hover {
-    filter : drop-shadow(1px 1px 1px #0004);
+    filter : drop-shadow(3px 3px 3px #0004);
+}
+
+.HeaderButton {
+    width : 118px;
+    padding: 5px;
+}
+
+.HeaderButton:hover {
+    width : 128px;
+    padding : 0;
+    animation-name : Grow;
+    animation-duration: .2s;
+}
+
+
+@keyframes Grow {
+
+    from {
+        width : 118px;
+        padding: 5px;
+    }
+
+    to {
+        width : 128px;
+        padding : 0;
+    }
 }

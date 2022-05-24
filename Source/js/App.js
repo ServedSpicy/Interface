@@ -8,20 +8,37 @@ import Recipe from './Recipe.js'
 const { useMenu } = Menu;
 
 
-window.addEventListener('load',async () => {
+async function init(){
 
     await Socket.connect();
     await Recipe.load();
     await Spices.load();
 
-    query('#Overview > *:first-child')
-        .addEventListener('click',() => useMenu('Recipes'));
 
-    query('#Overview > *:nth-child(2)')
-            .addEventListener('click',() => useMenu('Editor'));
+    switchOn({
+        button : '#Overview > *:first-child' ,
+        menu : 'Recipes'
+    });
 
-    query('#Overview > *:last-child')
-        .addEventListener('click',() => useMenu('Spices'));
+    switchOn({
+        button : '#Overview > *:nth-child(2)' ,
+        menu : 'Editor'
+    });
+
+    switchOn({
+        button : '#Overview > *:last-child' ,
+        menu : 'Spices'
+    });
+
 
     useMenu('Recipes');
-});
+}
+
+
+function switchOn({ button , menu }){
+    query(button)
+        .addEventListener('click',() => useMenu(menu));
+}
+
+
+window.addEventListener('load',init);

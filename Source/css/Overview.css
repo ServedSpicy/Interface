@@ -5,6 +5,9 @@
     justify-content : center;
     box-shadow : #0005 0 1px 3px 2px;
     display : flex;
-    height : fit-content;
+    height : 130px;
+    overflow : hidden;
     width : 100%;
+    position: fixed;
+    z-index: 200;
 }

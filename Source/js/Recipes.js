@@ -92,6 +92,7 @@ menu.onOpen = async (editor) => {
             useInMachine.classList[checked ? 'remove' : 'add']('Checked');
             useInMachine.innerHTML = `<img src = './img/${ checked ? 'Upload' : 'Unused' }.png'>`;
             recipe.isUsed = checked;
+            useInMachine.title = 'Toggle Use';
             updateIndicator();
         }
 
@@ -100,11 +101,13 @@ menu.onOpen = async (editor) => {
         openEditor.classList.add('button');
         openEditor.innerHTML = `<img src = './img/Edit.png'>`;
         openEditor.addEventListener('click',() => useMenu('Editor',recipe));
+        openEditor.title = 'Edit';
         options.appendChild(openEditor);
 
         const removeRecipe = create('div');
         removeRecipe.classList.add('button');
         removeRecipe.innerHTML = `<img src = './img/Remove.png'>`;
+        removeRecipe.title = 'Delete';
         removeRecipe.addEventListener('click',() => {
             const remove = confirm("Are you sure you want to proceed?");
             if(remove){

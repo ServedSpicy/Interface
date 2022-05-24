@@ -5,6 +5,7 @@ import { useTitle } from './Browser.js'
 (async () => {
 
     const menus = new Map;
+
     let editor , menu;
 
 
