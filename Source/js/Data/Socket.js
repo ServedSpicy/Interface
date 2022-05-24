@@ -3,7 +3,12 @@
 const { log } = console;
 
 
-const port = 7806;
+let port = window.location.port ?? 4242;
+
+port++;
+
+log(`Websocket is using port: ${ port }`);
+
 const address = `ws://localhost:${ port }`;
 
 

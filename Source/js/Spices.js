@@ -1,6 +1,6 @@
 
 import { loadSpices } from './Data/Load.js'
-import { saveRecipes } from './Data/Save.js'
+import { saveSpices } from './Data/Save.js'
 
 
 const { log } = console;
@@ -67,7 +67,7 @@ async function requestSpices(){
     spices = response.spices;
 }
 
-async function saveSpices(){
+async function save(){
 
     log(`Saving Spices`);
 
@@ -170,7 +170,7 @@ menu.onOpen = async (editor) => {
 
                 spices[index] = value;
 
-                saveSpices();
+                save();
             });
             preview.appendChild(input);
         });
