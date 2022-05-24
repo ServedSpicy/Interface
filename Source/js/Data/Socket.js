@@ -1,19 +1,25 @@
 
 
+import { blueA , reset , orangeA } from '../Color.js'
+
 const { log } = console;
+
+
+function print(text,...style){
+    log(` %c⇄%c  ${ text }`, blueA , reset , ...style );
+}
 
 
 let port = window.location.port ?? 4242;
 
 port++;
 
-log(`Websocket is using port: ${ port }`);
+print(`Port: %c${ port }`,orangeA);
 
 const address = `ws://localhost:${ port }`;
 
 
-let socket;
-let onResource;
+let onResource , socket;
 
 
 async function request(json){
@@ -76,7 +82,7 @@ async function connect(){
     await new Promise((resolve,reject) => {
 
         socket.onopen = () => {
-            log(`Connected to websocket`);
+            print(`Connected`);
             resolve();
         };
 
@@ -97,7 +103,7 @@ async function connect(){
         };
 
         socket.onclose = () => {
-            log(`Disconnected from websocket.`);
+            print(`Disconnected`);
             socket = null;
         };
     });
