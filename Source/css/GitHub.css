@@ -1,0 +1,19 @@
+
+#GitHub {
+    position : fixed;
+    pointer-events: all;
+    cursor : pointer;
+    left : 12px;
+    top : 12px;
+    z-index : 201;
+    fill : white;
+    filter : drop-shadow(1px 1px 2px #0004);
+}
+
+#GitHub:hover > * {
+    filter : contrast(1.1) brightness(1.1);
+}
+
+#GitHub > * {
+    width : 100%;
+}

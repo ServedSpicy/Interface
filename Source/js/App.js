@@ -1,5 +1,6 @@
 
-import { query } from './Browser.js'
+import { query , byId } from './Browser.js'
+import upload from './Data/Upload.js'
 import Socket from './Data/Socket.js'
 import Spices from './Spices.js'
 import Recipe from './Recipe.js'
@@ -29,6 +30,12 @@ async function init(){
         menu : 'Spices'
     });
 
+    byId('Upload')
+        .addEventListener('click',upload);
+
+    byId('GitHub')
+        .addEventListener('click',openGitHub);
+
 
     useMenu('Recipes');
 }
@@ -39,5 +46,8 @@ function switchOn({ button , menu }){
         .addEventListener('click',() => useMenu(menu));
 }
 
+function openGitHub(){
+    Socket.request({ action : 'openGitHub' });
+}
 
 window.addEventListener('load',init);

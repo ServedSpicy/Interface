@@ -31,3 +31,7 @@ input {
     pointer-events : auto;
     user-select : auto;
 }
+
+a {
+    cursor : pointer;
+}
