@@ -179,7 +179,7 @@ import Recipe from './Recipe.js';
                 value = null;
 
             recipe.name = value;
-            editor.style.backgroundColor = Color.stringColor(recipe.name,20,60);
+            // editor.style.backgroundColor = Color.stringColor(recipe.name,20,60);
         }
 
         function spiceBox(amount,spice){
