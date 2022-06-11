@@ -2,6 +2,7 @@
 
 import { loadRecipes } from './Data/Load.js'
 import { saveRecipes } from './Data/Save.js'
+import { stringColor } from './Color.js'
 
 
 const { log , warn } = console;
@@ -232,7 +233,7 @@ class Recipe {
     }
 
     #calcColor(){
-        this.#color = Color.stringColor(this.#name,40,50);
+        this.#color = stringColor(this.#name,40,50);
     }
 
     #calcBytes(){

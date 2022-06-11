@@ -1,6 +1,7 @@
 
 
 import { create } from './Browser.js'
+import { stringColor } from './Color.js'
 import Spices from './Spices.js'
 import Recipe from './Recipe.js';
 
@@ -118,7 +119,7 @@ import Recipe from './Recipe.js';
             const usable = spice.length > 1;
 
             const color = usable
-                ? Color.stringColor(spice,20,50)
+                ? stringColor(spice,20,50)
                 : '#9d9d9d' ;
 
             const box = create('div');
@@ -179,7 +180,7 @@ import Recipe from './Recipe.js';
                 value = null;
 
             recipe.name = value;
-            // editor.style.backgroundColor = Color.stringColor(recipe.name,20,60);
+            // editor.style.backgroundColor = stringColor(recipe.name,20,60);
         }
 
         function spiceBox(amount,spice){
@@ -187,7 +188,7 @@ import Recipe from './Recipe.js';
             const box = create('div');
             box.classList.add('button');
             box.textContent = spice;
-            box.style.backgroundColor = Color.stringColor(spice,20,50);
+            box.style.backgroundColor = stringColor(spice,20,50);
             box.addEventListener('click',onRemoveSpice);
             used.appendChild(box);
 

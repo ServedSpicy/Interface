@@ -1,6 +1,7 @@
 
 import { loadSpices } from './Data/Load.js'
 import { saveSpices } from './Data/Save.js'
+import { stringColor , stringHue } from './Color.js'
 
 
 const { log } = console;
@@ -149,10 +150,10 @@ menu.onOpen = async (editor) => {
         const spice = spices[index];
 
         if(spice){
-            // polygon.style.fill = Color.stringColor(spice);
-            // polygon.style.stroke = Color.stringColor(spice);
-            polygon.style.setProperty('--stroke',`hsl(${ Color.stringHue(spice) },50%,70%)`);
-            polygon.style.setProperty('--color',Color.stringColor(spice));
+            // polygon.style.fill = stringColor(spice);
+            // polygon.style.stroke = stringColor(spice);
+            polygon.style.setProperty('--stroke',`hsl(${ stringHue(spice) },50%,70%)`);
+            polygon.style.setProperty('--color',stringColor(spice));
         }
 
         polygon.addEventListener('click',() => {

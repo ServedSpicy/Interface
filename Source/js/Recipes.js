@@ -31,7 +31,7 @@ menu.onOpen = async (editor) => {
         .sort((a,b) => b.bytes - a.bytes)
         .forEach((recipe) => {
             const indicator = create('div');
-            // indicator.style.backgroundColor = recipe.color;//Color.stringColor(recipe.name);
+            // indicator.style.backgroundColor = recipe.color;//stringColor(recipe.name);
             indicator.title = ` ${ recipe.name } ( ${ recipe.bytes } Bytes ) `;
             const percent = ((recipe.bytes / 1000) * 100);
             log(percent,recipe.bytes);
