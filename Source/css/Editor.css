@@ -6,6 +6,7 @@
     overflow-y : scroll;
     min-height : calc(85% - 130px);
     height : fit-content;
+    padding-bottom: 60px;
 }
 
 #Editor.Editor {

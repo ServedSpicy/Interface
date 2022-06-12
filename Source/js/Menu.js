@@ -16,7 +16,7 @@ import { useTitle } from './Browser.js'
         editor = document.createElement('div');
         editor.id = 'Editor';
 
-        document.body.appendChild(editor);
+        document.getElementById('Menus').appendChild(editor);
     }
 
 
