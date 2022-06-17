@@ -71,51 +71,58 @@ menu.onOpen = async (editor,recipe) => {
 
     function updateAmount(){
 
-        [...amounts.children].forEach((input,index) => {
+        const nodes_amount = [ ...amounts.children ];
+        const nodes_used = [ ...used.children ];
+        const { spices } = recipe;
 
-            const spice = [...used.children][index];
+        log(nodes_amount)
 
-            let
-                onInput = ignore,
-                value = '';
+        nodes_amount
+        .map((input,index) => [ input , nodes_used[index] ])
+        .forEach(([ input , used ]) => {
 
+            let value = '';
 
-            if(spice){
-
-                const name = spice.textContent;
-                value = recipe.spices.get(name);
-
-                onInput = checkInput;
+            if(used){
+                const { textContent : name } = used;
+                value = spices.get(name);
             }
 
+            log(value,used)
+
             input.value = value;
-            input.oninput = onInput;
+            input.oninput = used
+                ? checkInput
+                : ignore;
+
+
+            function checkInput(){
+
+                const { dataset , value } = input;
+
+                let amount = value
+                    .replace(/[^0-9]/g,'')
+                    .replace(/^0/,'');
+
+
+                amount ??= '1';
+                amount = parseInt(amount);
+
+                if(amount < 1)
+                    amount = 1;
+
+                if(amount > 255)
+                    amount = 255;
+
+                input.value = amount;
+
+                const { textContent : name } = used;
+
+                recipe.modifySpice(name,amount);
+            }
         });
     }
 
-
-    function checkInput(){
-
-        const { dataset , value } = input;
-
-        let amount = value
-            .replace(/[^0-9]/g,'')
-            .replace(/^0/,'');
-
-
-        amount ??= '1';
-        amount = parseInt(amount);
-
-        if(amount < 1)
-            amount = 1;
-
-        if(amount > 255)
-            amount = 255;
-
-        input.value = amount;
-
-        recipe.modifySpice(name,amount);
-    }
 
 
     function addSpiceChoice(index){
