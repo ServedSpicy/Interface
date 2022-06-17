@@ -1,0 +1,36 @@
+
+#Welcome {
+    position: fixed;
+    z-index: 9999999999;
+    width: 100%;
+    height: 100%;
+    background-color: var(--A);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    font-family: monospace;
+    font-weight: bold;
+    cursor: pointer;
+    pointer-events : auto;
+}
+
+#Welcome.Removed {
+    pointer-events: none;
+    animation-name : Fade;
+    animation-duration: .8s;
+    animation-fill-mode: forwards;
+}
+
+
+@keyframes Fade {
+
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+        display: none;
+    }
+}

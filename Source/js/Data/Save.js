@@ -14,3 +14,7 @@ export async function saveSpices(spices){
 export async function saveRecipes(recipes){
     return await write('Recipes',recipes);
 }
+
+export async function saveSettings(settings){
+    return await write('Settings',settings);
+}

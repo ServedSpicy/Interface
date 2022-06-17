@@ -22,7 +22,14 @@
     *Explanation of the implementation.*
 
 <br>
+<br>
 
+## Acknowledgment
+
+**Voicelines** were generated with **[15.ai]**.
+
+
+<br>
 
 <!--   🌶  🌶  🌶  🌶  🌶  🌶  🌶  🌶  🌶  🌶  🌶  🌶  🌶  🌶  🌶  🌶  🌶   -->
 
@@ -33,6 +40,7 @@
 [Bundler]: https://github.com/ServedSpicy/Bundle
 [Deno]: https://deno.land/
 
+[15.ai]: https://15.ai/
 
 
 <!--   🌶  🌶  🌶  🌶  🌶  🌶  🌶    Badges    🌶  🌶  🌶  🌶  🌶  🌶  🌶   -->

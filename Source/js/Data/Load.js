@@ -14,3 +14,7 @@ export async function loadSpices(){
 export async function loadRecipes(){
     return await read('Recipes');
 }
+
+export async function loadSettings(){
+    return await read('Settings');
+}
